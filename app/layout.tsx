@@ -2,8 +2,8 @@ import './globals.css'
 import {Nunito} from "next/font/google"
 import Navbar from './components/Navbar/Navbar';
 import ClientOnly from './components/ClientOnly';
-import Modal from './components/Modals/Modal';
 import RegisterModal from './components/Modals/RegisterModal';
+import ToastProvider from './providers/ToastProvider';
 
 const font = Nunito({
   subsets : ["latin"],
@@ -24,8 +24,8 @@ export default function RootLayout({
       <body className={font.className}>
         {/* wrap the navbar under the clientOnly component */}
 <ClientOnly>
+  <ToastProvider/>
   <Navbar/>
-  {/* <Modal isopen title='Welcome to Airbnb !'/> */}
   <RegisterModal/>
 </ClientOnly>
         {children}
